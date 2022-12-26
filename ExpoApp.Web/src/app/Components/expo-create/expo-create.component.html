@@ -1,0 +1,188 @@
+<div class="container organize-container">
+    <div class="expo-details-title">
+        <h1 style="color: #000;">Fill in the expo details</h1>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="form-container">
+        <form [formGroup]="expoDetails" (ngSubmit)="onSubmit()">
+            <ng-template>Details</ng-template>
+            <div class="expo-form-field">
+                <div class="expo-main-info">
+                    <mat-form-field appearance="outline" color="primary">
+                        <mat-label>Title</mat-label>
+                        <input matInput type="text" formControlName="title">
+                        <button *ngIf="getTitle?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="clearTitle()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field appearance="outline" color="primary">
+                                <mat-label>Descritpion</mat-label>
+                                <textarea matInput type="text" formControlName="description"></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="expo-dates-info">
+                            <div class="expo-dates">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Date from</mat-label>
+                                    <input matInput [matDatepicker]="pickerFrom" formControlName="dateOfOpening">
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFrom></mat-datepicker>
+                                    <button *ngIf="getDateOfOpening?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="clearDateOfOpening()">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Date to</mat-label>
+                                <input matInput [matDatepicker]="pickerTo" formControlName="dateOfClosing">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerTo></mat-datepicker>
+                                <button *ngIf="getDateOfClosing?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="clearDateOfClosing()">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <div class="expo-times">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Opening on</mat-label>
+                            <input matInput type="time" formControlName="workHoursOpening">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Closing on</mat-label>
+                            <input matInput type="time" formControlName="workHoursClosing">
+                        </mat-form-field>
+                    </div>
+                    <div class="expo-industries">
+                        <mat-form-field appearance="outline" class="industry-form-field">
+                            <mat-label>Industry</mat-label>
+                            <mat-select formControlName="industryId">
+                                <mat-option *ngFor="let industry of industries" [value]="industry.id">
+                                    {{industry.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-btns">
+                    <button mat-flat-button color="accent" [disabled]="expoDetails.invalid" class="expo-submit-btn">Organize</button>
+                    <button mat-flat-button (click)="expoDetails.reset()" color="warn">Cancel</button>
+                </div>
+            </div>
+        </form>
+        <!-- <mat-stepper linear #stepper color="accent">
+            <mat-step [stepControl]="expoDetails"></mat-step>
+            <mat-step [stepControl]="expoLocation">
+                <form [formGroup]="expoLocation">
+                    <ng-template matStepLabel>Location</ng-template>
+                    <div class="expo-form-location">
+                        <mat-form-field appearance="outline" color="primary">
+                            <mat-label>Address</mat-label>
+                            <input matInput type="text" formControlName="address">
+                            <button *ngIf="getAddress?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="clearAddress()">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <div class="expo-address">
+                            <mat-form-field appearance="outline" color="primary">
+                                <mat-label>City</mat-label>
+                                <input matInput type="text" formControlName="city">
+                                <button *ngIf="getCity?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="clearCity()">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Postal Code</mat-label>
+                                <input matInput #postalCode maxlength="5" placeholder="Ex. 94105"
+                                    formControlName="postalCode">
+                                <button *ngIf="getPostalCode?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="clearPostalCode()">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <mat-form-field appearance="outline" color="primary">
+                            <mat-label>Country</mat-label>
+                            <input matInput type="text" formControlName="country">
+                            <button *ngIf="getCountry?.dirty" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="clearCountry()">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <div class="expo-back-next-steps">
+                        <button mat-flat-button matStepperPrevious color="primary">Back</button>
+                        <button mat-flat-button matStepperNext color="accent">Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="ticketsArray">
+                <form [formGroup]="expoDetails">
+                    <ng-template matStepLabel>Tickets</ng-template>
+                    <div class="expo-add-ticekt">
+                        <div formArrayName="tickets">
+                            <div [formGroup]="ticketForm" class="tickets">
+                                <mat-form-field appearance="outline" color="primary">
+                                    <mat-label>Type</mat-label>
+                                    <input matInput type="text" formControlName="type">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" color="primary">
+                                    <mat-label>Price</mat-label>
+                                    <input matInput type="text" formControlName="price">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" color="primary">
+                                    <mat-label>Number of days until expires</mat-label>
+                                    <input matInput type="number" formControlName="validDaysCount">
+                                </mat-form-field>
+                                <button mat-mini-fab color="accent" [disabled]="ticketForm.invalid"
+                                    (click)="addTicektType()">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                            <mat-divider *ngIf="getTickets().length"></mat-divider>
+                            <div *ngFor="let ticket of getTickets()?.controls; let i = index">
+                                <div [formGroupName]="i" class="tickets">
+                                    <mat-form-field appearance="outline" color="primary">
+                                        <mat-label>Type</mat-label>
+                                        <input matInput type="text" formControlName="type">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline" color="primary">
+                                        <mat-label>Price</mat-label>
+                                        <input matInput type="number" formControlName="price">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline" color="primary">
+                                        <mat-label>Number of days until expires</mat-label>
+                                        <input matInput type="number" formControlName="validDaysCount">
+                                    </mat-form-field>
+                                    <button mat-icon-button color="warn" (click)="removeTicketType(i)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="expo-back-next-steps">
+                    <button mat-flat-button matStepperPrevious color="primary">Back</button>
+                    <button mat-flat-button matStepperNext color="accent">Next</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <div class="expo-final-step">
+                    <h1 class="expo-final-title">One more step</h1>
+                    <div class="expo-final-btns">
+                        <button mat-flat-button color="accent" [disabled]="expoDetails.invalid" (click)="onSubmit()"
+                            class="expo-submit-btn">Organize</button>
+                        <button mat-flat-button (click)="stepper.reset()" color="warn">Cancel</button>
+                    </div>
+                </div>
+            </mat-step>
+        </mat-stepper> -->
+    </div>
+</div>

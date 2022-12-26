@@ -1,0 +1,73 @@
+<!-- start of description container -->
+<div class="expo-details">
+  <img
+    class="image"
+    src="https://poslovnenovine.ba/pono/wp-content/uploads/2021/07/Dubai-Leaders-Event.jpeg"
+  />
+  <div style="margin: 1% 1% 1% 1%; width: 100%">
+    <div style="display: flex; flex-direction: row; width: 100%">
+      <p style="font-weight: 800">Title:</p>
+      <p style="padding-left: 5px">IT sajam</p>
+    </div>
+    <div style="display: flex; flex-direction: row; width: 100%">
+      <p style="font-weight: 800">Datum odrzavanja:</p>
+      <p style="padding-left: 5px">21.06.2022</p>
+    </div>
+    <div style="display: flex; flex-direction: row; width: 100%">
+      <p style="font-weight: 800">Lokacija:</p>
+      <p style="padding-left: 5px">Mostar</p>
+    </div>
+    <div style="display: flex; flex-direction: row; width: 100%">
+      <p style="font-weight: 800">Opis:</p>
+      <p style="padding-left: 5px">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem
+      </p>
+    </div>
+  </div>
+</div>
+<!-- end of description container -->
+<div class="forma-div">
+  <form class="forma" [formGroup]="applyForm">
+    <label style="font-weight: 800">Full Name</label>
+    <input
+      formControlName="fullname"
+      type="text"
+      placeholder="Your full name..."
+    />
+    <span
+      style="margin-left: 15px; color: red"
+      *ngIf="
+        applyForm.get('fullname')?.invalid && applyForm.get('fullname')?.touched
+      "
+      >Full name is required</span
+    >
+    <label style="font-weight: 800">Email</label>
+    <input type="text" placeholder="Your email..." formControlName="email" />
+    <span
+      style="margin-left: 15px; color: red"
+      *ngIf="applyForm.get('email')?.invalid && applyForm.get('email')?.touched"
+      >Email is required</span
+    >
+    <label style="font-weight: 800">Mobile</label>
+    <input type="text" placeholder="Your mobile..." formControlName="mobile" />
+    <span
+      style="margin-left: 15px; color: red"
+      *ngIf="
+        applyForm.get('mobile')?.invalid && applyForm.get('mobile')?.touched
+      "
+      >Mobile is required</span
+    >
+    <div class="btnContainer">
+      <button type="submit" class="button" routerLink="/home">
+        Prijavi se
+      </button>
+    </div>
+  </form>
+  <div style="height: 20px"></div>
+</div>

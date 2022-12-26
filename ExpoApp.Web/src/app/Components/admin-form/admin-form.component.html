@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin-form.component.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-wrench'></i>
+      <span class="logo_name">ADMIN Panel</span>
+    </div>
+
+    <ul class="nav-links">
+      <li>
+        <a class="nav-link" routerLink="users-table">
+          <i class='bx bxs-user'></i>
+          <span class="link_name">Users</span>
+        </a>
+      </li>
+
+      <li>
+          <a class="nav-link" routerLink="expos-table">
+            <i class='bx bx-book-alt'></i>
+            <span class="link_name">Expos</span>
+          </a>
+      </li>
+
+      <li>
+        <a class="nav-link" routerLink="industry-table">
+          <i class='bx bxs-factory'></i>
+          <span class="link_name">Industry</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <!--HOME CONTENT-->
+  <section class="home-section">
+    <!-- <nav>
+       <div class="search-box">
+        <input type="text" placeholder="Search">
+        <i class='bx bx-search'></i>
+      </div> 
+      <div class="profile-details">
+        <i class='bx bxs-user-rectangle'></i>
+        <span class="admin_name">ADMIN NAME</span>
+      </div>
+
+    </nav> -->
+
+    <router-outlet></router-outlet>
+  </section>
+</body>
+
+
+</html>

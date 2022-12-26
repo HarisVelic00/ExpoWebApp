@@ -1,0 +1,6 @@
+<div class="main d-flex flex-row">
+  <app-filter class="w-25" (filterEmiter)="filterExpos($event)"></app-filter>
+  <div class="container w-75">
+    <app-expo-card [filters]="expoFilters"></app-expo-card>
+  </div>
+</div>

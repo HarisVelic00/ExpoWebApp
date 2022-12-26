@@ -1,0 +1,21 @@
+.detailsContainer {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(237, 237, 237);
+}
+.img {
+  height: 100%;
+  width: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.information {
+  margin-left: 2%;
+}
+.p {
+  margin: 0;
+  padding: 0;
+}
+.grid-tile {
+  margin-right: 10px;
+}

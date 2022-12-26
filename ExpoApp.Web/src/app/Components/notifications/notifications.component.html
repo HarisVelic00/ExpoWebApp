@@ -1,0 +1,13 @@
+<div class="notifications">
+    <div *ngFor="let notification of notifications" class="notification">
+        <div class="notification-details" (click)="markAsSeen(notification)">
+            <mat-icon color="primary">event_seat</mat-icon>
+            <div class="set-width">
+                <h5 class="notification-title">{{notification.title}}</h5>
+                <p class="notification-content">{{notification.content}}</p>
+                <span class="notification-date">{{notification.creationDate | date:"short"}}</span>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+</div>

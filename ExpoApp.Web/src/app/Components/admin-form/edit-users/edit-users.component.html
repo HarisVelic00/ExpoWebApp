@@ -1,0 +1,40 @@
+<div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true" role="dialog" style="display: block" *ngIf="odaberiKorisnika!=null && odaberiKorisnika.show">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Edit User</h5>
+        <button mat-flat-button (click)="odaberiKorisnika.show=false"></button>
+      </div>
+      <div class="modal-body">
+
+        <form id="filter-form">
+          <!-- <mat-form-field appearance="fill" color="accent">
+            <mat-label>First Name</mat-label>
+            <input [(ngModel)]="odaberiKorisnika.firstname" name="firstname" matInput type="text">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Last Name</mat-label>
+            <input [(ngModel)]="odaberiKorisnika.lastname" name="lastname" matInput type="text">
+          </mat-form-field> -->
+
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Username</mat-label>
+            <input [(ngModel)]="odaberiKorisnika.username" name="username" matInput type="text">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="odaberiKorisnika.email" name="email" matInput type="text">
+          </mat-form-field>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button mat-flat-button color="primary" (click)="odaberiKorisnika.show=false">Close</button>
+        <button mat-flat-button color="accent" (click)="spasiPromjene()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

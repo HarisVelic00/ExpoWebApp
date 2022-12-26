@@ -1,0 +1,43 @@
+<div id="container">
+  <div class="forma-div">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="forma">
+      <h1 class="login-now">Login Now</h1>
+      <hr class="hr" />
+      <label>Username</label>
+      <input
+        formControlName="username"
+        type="text"
+        placeholder="Your Username..."
+      />
+      <span
+        *ngIf="
+          loginForm.get('username')?.invalid &&
+          loginForm.get('username')?.touched
+        "
+        >Username is required</span
+      >
+      <label>Password</label>
+      <input
+        type="password"
+        placeholder="Your password..."
+        formControlName="password"
+      />
+      <span
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+        "
+        >Password is required</span
+      >
+      <div class="btnContainer">
+          <button class="button">Submit</button>
+      </div>
+      <a routerLink="/register"
+        ><p style="text-align: center; font-weight: 600">
+          Don't have account? Sign Up
+        </p></a
+      >
+    </form>
+  </div>
+  <img class="image" src="../../../assets/expoWeb.jpg" />
+</div>

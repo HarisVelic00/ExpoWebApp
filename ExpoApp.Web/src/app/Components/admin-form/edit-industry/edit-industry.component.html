@@ -1,0 +1,30 @@
+<div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true" role="dialog" style="display: block" *ngIf="odaberiIndustriju!=null && odaberiIndustriju.prikazi">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Edit Industry</h5>
+        <button mat-flat-button (click)="odaberiIndustriju.prikazi=false">X</button>
+      </div>
+      <div class="modal-body">
+
+        <form id="filter-form">
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="odaberiIndustriju.name" name="name" matInput type="text" >
+          </mat-form-field>
+        </form>
+
+        <!-- <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" type="text" placeholder="Name" [(ngModel)]="odaberiIndustriju.name">
+        </div> -->
+
+        <div class="modal-footer">
+          <button mat-flat-button color="primary" (click)="odaberiIndustriju.prikazi=false">Close</button>
+          <button mat-flat-button color="accent" (click)="spasiPromjene()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

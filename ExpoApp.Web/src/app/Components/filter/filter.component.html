@@ -1,0 +1,70 @@
+<div class="filter-container">
+    <div class="filter-header">
+        <h3 class="filter-header-title">Filters</h3>
+        <button mat-icon-button color="primary" id="clear-form-btn" (click)="clearFilters()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <form id="filter-form" [formGroup]="_filterForm" (ngSubmit)="filterExpos()">
+        <mat-form-field appearance="fill" color="accent">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title">
+            <button *ngIf="getTitle?.dirty && !isEmpty(getTitle)" matSuffix mat-icon-button aria-label="Clear" (click)="clearTitle()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="fill" color="accent">
+            <mat-label>Date from</mat-label>
+            <input matInput [matDatepicker]="pickerFrom" formControlName="dateFrom">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFrom></mat-datepicker>
+            <button *ngIf="getDateFrom?.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="clearDateFrom()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="fill" color="accent">
+            <mat-label>Date to</mat-label>
+            <input matInput [matDatepicker]="pickerTo" formControlName="dateTo">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+            <mat-datepicker #pickerTo></mat-datepicker>
+            <button *ngIf="getDateTo?.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="clearDateTo()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Industries
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-radio-group class="d-flex flex-column"
+                    formControlName="industry">
+                    <mat-radio-button class="mb-2" *ngFor="let industry of industries" [value]="industry.id">
+                        {{industry.name}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <mat-form-field appearance="fill" floatLabel="always" color="accent">
+            <mat-label>Price from</mat-label>
+            <input matInput type="number" placeholder="100.00" min="0" formControlName="priceFrom">
+            <button *ngIf="getPriceFrom?.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="clearPriceFrom()">
+                <mat-icon>close</mat-icon>
+            </button>
+            <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+        <mat-form-field appearance="fill" floatLabel="always" color="accent">
+            <mat-label>Price to</mat-label>
+            <input matInput type="number" placeholder="100.00" min="0" formControlName="priceTo">
+            <button *ngIf="getPriceTo?.dirty" matSuffix mat-icon-button aria-label="Clear" (click)="clearPriceTo()">
+                <mat-icon>close</mat-icon>
+            </button>
+            <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+        <button type="submit" [disabled]="_filterForm.invalid" mat-flat-button color="accent">Search</button>
+    </form>
+</div>

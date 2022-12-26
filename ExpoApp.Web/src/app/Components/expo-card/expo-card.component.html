@@ -1,0 +1,21 @@
+<mat-grid-list cols="2" rowHeight="2:1" gutterSize="20">
+  <mat-grid-tile class="rounded" *ngFor="let expo of expos">
+    <div class="detailsContainer d-flex">
+      <img
+        class="img"
+        src="https://poslovnenovine.ba/pono/wp-content/uploads/2021/07/Dubai-Leaders-Event.jpeg"
+      />
+      <div class="information">
+        <p class="p">Title: {{ expo.title }}</p>
+        <!-- <p class="p">Location: {{ expo.location.city }}</p> -->
+        <p class="p">Date: {{ expo.dateOfOpening | date:"dd/MM/yyyy" }}</p>
+        <p class="p">
+          {{ expo.description }}
+        </p>
+        <a routerLink="/apply">
+          <button mat-raised-button color="accent">Details</button>
+        </a>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

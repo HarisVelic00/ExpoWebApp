@@ -1,0 +1,76 @@
+<div id="container">
+  <div class="forma-div">
+    <form [formGroup]="registerForm" (click)="onSubmit()" class="forma">
+      <h1 class="register-now">Register Now</h1>
+      <hr class="hr" />
+      <label>Company Name</label>
+      <input
+        formControlName="companyName"
+        type="text"
+        placeholder="Your company name..."
+      />
+      <span
+        *ngIf="
+          registerForm.get('companyName')?.invalid &&
+          registerForm.get('companyName')?.touched
+        "
+        >company name is required</span
+      >
+      <!-- <label>First Name</label>
+      <input
+        formControlName="firstname"
+        type="text"
+        placeholder="Your first name..."
+      />
+      <span
+        *ngIf="
+          registerForm.get('firstname')?.invalid &&
+          registerForm.get('firstname')?.touched
+        "
+        >First name is required</span
+      >
+      <label>Last Name</label>
+      <input
+        type="text"
+        formControlName="lastname"
+        placeholder="Your last name..."
+      />
+      <span
+        *ngIf="
+          registerForm.get('lastname')?.invalid &&
+          registerForm.get('lastname')?.touched
+        "
+        >Last name is required</span
+      > -->
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="Your email..." />
+      <span
+        *ngIf="
+          registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched
+        "
+        >Email is required</span
+      >
+      <label>Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Your password..."
+      />
+      <span
+        *ngIf="
+          registerForm.get('password')?.invalid &&
+          registerForm.get('password')?.touched
+        "
+        >Password is required</span
+      >
+      <div>
+        <label class="organizer">Dropdown</label>
+        <input type="checkbox" id="check" name="check" />
+
+        <button class="button" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <img class="image" src="../../../assets/expoWeb.jpg" />
+</div>

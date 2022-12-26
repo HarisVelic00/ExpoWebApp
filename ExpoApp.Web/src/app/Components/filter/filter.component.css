@@ -1,0 +1,52 @@
+.filter-container {
+    padding: 20px 8px;
+    border-right: 2px solid whitesmoke;
+    height: 100%;
+}
+
+.filter-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.filter-header-title {
+    margin: 0;
+}
+.form-group, #date-from, #country-field {
+    margin-bottom: 10px;
+}
+
+#clear-icon {
+    font-weight: 700;
+}
+
+mat-divider {
+    margin: 16px 0;
+    background-color: #7d8036;
+}
+
+#filter-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#filter-form > mat-form-field{
+    margin-bottom: 16px;
+}
+
+mat-label, mat-panel-title, mat-radio-button {
+    color: black;
+    font-weight: 400;
+}
+
+mat-expansion-panel {
+    background-color: lightgray;
+    margin-bottom: 16px;
+}
+
+.mat-accordion>.mat-expansion-panel-spacing:last-child {
+    margin-bottom: 16px;
+}

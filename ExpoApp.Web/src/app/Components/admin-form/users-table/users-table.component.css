@@ -1,0 +1,36 @@
+th.mat-header-cell,
+td.mat-cell {
+  width: auto;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  top: 50px;
+}
+
+.userdiv {
+  width: 100%;
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.mat-form-field{
+  left: 1%;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+ .bx-search{
+  position:relative;
+  text-align: center;
+  text-justify: auto;
+  left: 2%;
+  top: 5px;
+  font-size: 22px;
+  font-weight: 500;
+}  
+
+#searchField{
+  width: 36%;
+}

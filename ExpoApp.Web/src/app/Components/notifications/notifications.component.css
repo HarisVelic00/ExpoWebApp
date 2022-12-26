@@ -1,0 +1,41 @@
+p, h5 {
+    margin: 0;
+}
+
+.notifications {
+    padding: 4px 8px;
+}
+
+mat-divider {
+    margin-bottom: 4px;
+}
+
+.notification {
+    margin-top: 4px;
+    width: 100%;
+}
+
+.notification-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+}
+
+.set-width {
+    width: 80%;
+}
+
+.notification-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #949398;
+}
+
+.notification-content {
+    font-size: 12px;
+}
+
+.notification-date {
+    font-size: 11px;
+}

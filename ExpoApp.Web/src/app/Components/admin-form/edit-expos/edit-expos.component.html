@@ -1,0 +1,52 @@
+ <div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true" role="dialog" style="display: block" *ngIf="odaberiSajam!=null &&  odaberiSajam.show">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Edit Expo</h5>
+        <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
+        <button mat-flat-button (click)="odaberiSajam.show=false">X</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form id="filter-form">
+            <mat-form-field appearance="fill" color="accent">
+              <mat-label>Title</mat-label>
+              <input [(ngModel)]="odaberiSajam.title" name="title" matInput type="text">
+            </mat-form-field>
+
+             <mat-form-field appearance="fill" color="accent">
+              <mat-label>Date Of Opening</mat-label>
+              <input [(ngModel)]="odaberiSajam.dateOfOpening" name="DateOfOpening" matInput type="date">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" color="accent">
+              <mat-label>Date Of Closing</mat-label>
+              <input  [(ngModel)]="odaberiSajam.dateOfClosing" name="dateOfClosing" matInput type="date">
+            </mat-form-field>
+<!--
+            <mat-form-field appearance="fill" color="accent">
+              <mat-label>Organiser</mat-label>
+              <input [(ngModel)]="odaberiSajam.organiser.username" name="organiser" matInput type="text">
+            </mat-form-field> -->
+
+            <!-- <mat-form-field appearance="fill" color="accent">
+              <mat-label>Industry</mat-label>
+              <input [(ngModel)]="odaberiSajam.industry.name" name="industry" matInput type="text">
+            </mat-form-field> -->
+
+            <!-- <mat-form-field appearance="fill" color="accent">
+              <mat-label>Expired</mat-label>
+              <input matInput [(ngModel)]="odaberiSajam.hasExpired" name="hasExpired" type="text">
+            </mat-form-field> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button mat-flat-button color="primary" (click)="odaberiSajam.show=false">Close</button>
+          <button mat-flat-button color="accent" (click)="spremiPromjene()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
